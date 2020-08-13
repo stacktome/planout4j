@@ -48,7 +48,7 @@ public class PlanoutDSLCompiler {
     @SuppressWarnings("unchecked")
     public static Map<String, ?> dsl_to_json(final String dsl) throws ValidationException {
         checkArgument(StringUtils.isNotEmpty(dsl), "dsl text is null or empty");
-        final ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        final ScriptEngine engine = new ScriptEngineManager(null).getEngineByName("JavaScript");
         engine.put("input", dsl);
         try {
             engine.eval(script);
